@@ -1,0 +1,17 @@
+{
+  "name": "cassh",
+  "version": "1.0.0",
+  "description": "discord bot",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "dotenv": "^8.2.0",
+    "shuffle-array": "^1.0.1",
+    "typescript": "^4.2.4"
+  }
+}
