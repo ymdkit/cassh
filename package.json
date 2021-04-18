@@ -22,5 +22,9 @@
     "webpack": "^5.33.2",
     "webpack-cli": "^4.6.0",
     "webpack-node-externals": "^2.5.2"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false
   }
 }
