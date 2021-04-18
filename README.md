@@ -7,10 +7,10 @@ Discord Bot For CyberAgent22 students based on [discord.js](https://discord.js.o
 ### Environment
 
 ```
-cp ./.env.example .env
+cp .env.example .env
 
 # And add AUTH_TOKEN
-# create your test token or ask @ymdkit
+# create your test token or ask @ymdkit for prod token
 ```
 
 ## Launch
@@ -39,7 +39,7 @@ export function createCommand(content: string): Command {
 }
 ```
 
-2. implement `commands/{your_command.ts}`
+2. implement `src/commands/{your_command.ts}`
 
 ```
 // example
