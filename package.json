@@ -5,8 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack",
-    "prod": "webpack --mode=production",
+    "build": "webpack --mode=production",
     "start": "node ./dist/app-build.js"
   },
   "author": "",
