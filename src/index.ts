@@ -1,5 +1,5 @@
-import { Client, VoiceChannel } from 'discord.js'
-import shuffle from 'shuffle-array'
+import { Client } from 'discord.js'
+import { createCommand } from './command'
 
 const client = new Client()
 
@@ -8,22 +8,8 @@ client.on('ready', () => {
 })
 
 client.on('message', (msg) => {
-  if (msg.content === 'shuffle') {
-    // 'shuffle' を発言したメンバーが入っているボイスチャンネルにいるメンバー全員
-    const members = msg.member.voice.channel.members.array()
-
-    const voiceChannels = client.channels.cache
-      .array()
-      .filter(
-        (it: VoiceChannel) =>
-          it.type === 'voice' && it.parentID === msg.guild.id
-      )
-
-    shuffle(members)
-    members.forEach((member, i) => {
-      member.voice.setChannel(voiceChannels[i % voiceChannels.length])
-    })
-  }
+  const command = createCommand(msg.content)
+  command.onMessage(client, msg)
 })
 
 client.login(process.env.AUTH_TOKEN)
