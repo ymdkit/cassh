@@ -13,7 +13,7 @@ cp ./.env.example .env
 # create your test token or ask @ymdkit
 ```
 
-## Use
+## Launch
 
 ### Use docker
 ```
