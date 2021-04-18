@@ -1,25 +1,24 @@
+import Discord from "discord.js";
+import shuffle from "shuffle-array";
 
-const VoiceChannel = require('discord.js');
-const Discord = require('discord.js');
-const shuffle = require('shuffle-array');
-require('dotenv').config();
 const client = new Discord.Client();
 
-client.on('ready', () => {
+client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.on('message', msg => {
-  if (msg.content === 'shuffle') {
+client.on("message", (msg) => {
+  if (msg.content === "shuffle") {
+    const channel = msg.member.voice.channel;
+    const members = channel.members.array();
+    const voiceChannels = client.channels.cache
+      .array()
+      .filter((it) => it.name.includes("スタディ"));
 
-    const channel = msg.member.voice.channel
-    const members = channel.members.array()
-    const voiceChannels = client.channels.cache.array().filter((it) => it.name.includes('スタディ'))
-
-    shuffle(members)
+    shuffle(members);
     members.forEach((member, i) => {
-      member.voice.setChannel(voiceChannels[i % voiceChannels.length])
-    })
+      member.voice.setChannel(voiceChannels[i % voiceChannels.length]);
+    });
   }
 });
 
