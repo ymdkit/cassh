@@ -4,7 +4,7 @@ import shuffle from 'shuffle-array'
 
 export class MemberShuffle implements Command {
   onMessage(client: Client, msg: Message): void {
-    // 'shuffle' を発言したメンバーが入っているボイスチャンネルにいるメンバー全員
+    // '!shuffle' を発言したメンバーが入っているボイスチャンネルにいるメンバー全員
     const members = msg.member.voice.channel.members.array()
 
     const voiceChannels = client.channels.cache
