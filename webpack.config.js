@@ -7,6 +7,19 @@ module.exports = {
   entry: {
     main: './src/index.ts',
   },
+  module: {
+    rules: [
+      {
+        test: /\.ts$/,
+        use: 'ts-loader',
+      },
+    ],
+  },
+  resolve: {
+    extensions: [
+      '.ts', '.js',
+    ],
+  },
   target: 'node',
   output: {
     path: path.join(__dirname, 'dist'),

@@ -1,7 +1,7 @@
-import Discord from 'discord.js'
+import { Client, VoiceChannel } from 'discord.js'
 import shuffle from 'shuffle-array'
 
-const client = new Discord.Client()
+const client = new Client()
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`)
@@ -9,11 +9,15 @@ client.on('ready', () => {
 
 client.on('message', (msg) => {
   if (msg.content === 'shuffle') {
-    const channel = msg.member.voice.channel
-    const members = channel.members.array()
+    // 'shuffle' を発言したメンバーが入っているボイスチャンネルにいるメンバー全員
+    const members = msg.member.voice.channel.members.array()
+
     const voiceChannels = client.channels.cache
       .array()
-      .filter((it) => it.name.includes('スタディ'))
+      .filter(
+        (it: VoiceChannel) =>
+          it.type === 'voice' && it.parentID === msg.guild.id
+      )
 
     shuffle(members)
     members.forEach((member, i) => {
