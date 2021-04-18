@@ -23,6 +23,7 @@ make run
 
 ### Use npm
 ```
+npm install
 npm run build
 npm run start
 ```
