@@ -10,6 +10,7 @@ Discord Bot For CyberAgent22 students based on [discord.js](https://discord.js.o
 cp ./.env.example .env
 
 # And add AUTH_TOKEN
+# create your test token or ask @ymdkit
 ```
 
 ## Use
